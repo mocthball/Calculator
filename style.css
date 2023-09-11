@@ -19,7 +19,7 @@ div {
 .calculator {
     background-color: darkcyan;
     padding: 24px;
-    border-radius: 7%;
+    border-radius: 5%;
     width: 400px;
 }
 
@@ -58,6 +58,10 @@ div {
 
 .options > btn:hover {
     background-color: darksalmon;
+}
+
+.op > button {
+    background-color:plum; 
 }
 
 
