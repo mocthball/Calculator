@@ -27,7 +27,6 @@ div {
     background-color: blanchedalmond;
     padding: 16px;
     font-size: 24px;
-
 }
 
 .screen > .last_operation {
@@ -67,6 +66,10 @@ div {
     border-radius: 20%;
     margin: 3px;
     
+}
+
+.buttons > * > btn:hover {
+    background-color:dimgrey
 }
 
 .buttons > * {

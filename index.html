@@ -8,8 +8,8 @@
     <div class="main">
         <div class = "calculator">
             <div class ="screen">
-                <div class="last_operation">83423842</div>
-                <div class="current_operation">234</div>
+                <div class="last_operation" id="last_operation"></div>
+                <div class="current_operation" id="current_operation"></div>
             </div>
             <div class="options">
                 <btn id="clear" onclick="clear_calc()">Clear</btn>
@@ -17,28 +17,28 @@
             </div>
             <div class="buttons">
                 <div class="row1">
-                    <btn id="7" onclick="">7</btn>
-                    <btn id="8" onclick="">8</btn>
-                    <btn id="9" onclick="">9</btn>
-                    <btn id="%" onclick="">%</btn>
+                    <btn id="7" onclick="key_entry(7)">7</btn>
+                    <btn id="8" onclick="key_entry(8)">8</btn>
+                    <btn id="9" onclick="key_entry(9)">9</btn>
+                    <btn id="%" onclick="operator_entry('%')">%</btn>
                 </div>
                 <div class="row2">
-                    <btn id="4" onclick="">4</btn>
-                    <btn id="5" onclick="">5</btn>
-                    <btn id="6" onclick="">6</btn>
-                    <btn id="X" onclick="">X</btn>
+                    <btn id="4" onclick="key_entry(4)">4</btn>
+                    <btn id="5" onclick="key_entry(5)">5</btn>
+                    <btn id="6" onclick="key_entry(6)">6</btn>
+                    <btn id="X" onclick="operator_entry('x')">x</btn>
                 </div>
                 <div class="row3">
-                    <btn id="1" onclick="">1</btn>
-                    <btn id="2" onclick="">2</btn>
-                    <btn id="3" onclick="">3</btn>
-                    <btn id="-" onclick="">-</btn>
+                    <btn id="1" onclick="key_entry(1)">1</btn>
+                    <btn id="2" onclick="key_entry(2)">2</btn>
+                    <btn id="3" onclick="key_entry(3)">3</btn>
+                    <btn id="-" onclick="operator_entry('-')">-</btn>
                 </div>
                 <div class="row4">
-                    <btn id="0" onclick="">0</btn>
+                    <btn id="0" onclick="key_entry(0)">0</btn>
                     <btn id="." onclick="">.</btn>
                     <btn id="=" onclick="">=</btn>
-                    <btn id="+" onclick="">+</btn>
+                    <btn id="+" onclick="operator_entry('+')">+</btn>
                 </div>
             </div>
         </div>
