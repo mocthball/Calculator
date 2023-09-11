@@ -18,7 +18,9 @@ function key_entry(num){
 
 function operator_entry(operation) {
     let enums = document.getElementById("last_operation");
-
+    if (SECOND_NUM === "."){
+        return;
+    }
     if (!TOTALING && SECOND_NUM){
         operator = operation;
         enums.innerHTML = SECOND_NUM + " " + operator;
@@ -26,18 +28,24 @@ function operator_entry(operation) {
         SECOND_NUM = "";
         document.getElementById("current_operation").innerHTML = "";
     }
-    else {
-        if (TOTALING && (SECOND_NUM.length > 0)){
-            TOTALING = operate(operator, TOTALING, Number(SECOND_NUM));
-        }
+    else if (TOTALING && (SECOND_NUM.length > 0) && operation == "="){
+        TOTALING = operate(operator, TOTALING, Number(SECOND_NUM));
+        SECOND_NUM = "";
+        enums.innerHTML = TOTALING + " " + "=";
+        document.getElementById("current_operation").innerHTML = "";
+    }
+    else if (TOTALING && (SECOND_NUM.length > 0)){
         operator = operation;
+        TOTALING = operate(operator, TOTALING, Number(SECOND_NUM));
         SECOND_NUM = "";
         enums.innerHTML = TOTALING + " " + operator;
         document.getElementById("current_operation").innerHTML = "";
     }
-
+    else {
+        operator = operation;
+        enums.innerHTML = " " + operator;
+    }
 }
-   
 
 function add(a,b) {
     return a + b;
