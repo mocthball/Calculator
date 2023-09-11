@@ -56,6 +56,10 @@ div {
     cursor:grab;
 }
 
+.options > btn:hover {
+    background-color: darksalmon;
+}
+
 
 .buttons > * > btn {
     background-color: lightslategray;

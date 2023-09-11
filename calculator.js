@@ -1,32 +1,39 @@
 let TOTALING;
 let SECOND_NUM = "";
 let operator = "";
-let first_operation = true;
 
 function key_entry(num){
-    if (SECOND_NUM.length > 12) {
-
+    if(num == "." && SECOND_NUM.includes(".")){
     }
     else {
-        SECOND_NUM += num;
+        if (SECOND_NUM.length > 12) {
+
+        }
+        else {
+            SECOND_NUM += num;
+        }
+        document.getElementById("current_operation").innerHTML = SECOND_NUM;
     }
-    document.getElementById("current_operation").innerHTML = SECOND_NUM;
 }
 
 function operator_entry(operation) {
-    operator = operation;
     let enums = document.getElementById("last_operation");
-    if (!enums.value && SECOND_NUM){
+
+    if (!TOTALING && SECOND_NUM){
+        operator = operation;
         enums.innerHTML = SECOND_NUM + " " + operator;
         TOTALING = Number(SECOND_NUM);
         SECOND_NUM = "";
         document.getElementById("current_operation").innerHTML = "";
     }
     else {
-        if (TOTALING){
-            console.log("test");
+        if (TOTALING && (SECOND_NUM.length > 0)){
+            TOTALING = operate(operator, TOTALING, Number(SECOND_NUM));
         }
+        operator = operation;
+        SECOND_NUM = "";
         enums.innerHTML = TOTALING + " " + operator;
+        document.getElementById("current_operation").innerHTML = "";
     }
 
 }
@@ -50,19 +57,25 @@ function divide(a, b) {
 
 function operate(operation, a, b) {
     switch(operation) {
-        case "add": 
+        case "+": 
             return add(a, b);
-        case "subtract":
+        case "-":
             return subtract(a, b);
-        case "multiply":
+        case "x":
             return multiply(a, b);
-        case "divide":
+        case "%":
             return divide(a,b);
     }
 }
 
 function clear_calc(){
-    first_operation = true;
-    FIRST_NUM = 0;
-    SECOND_NUM = 0;
+    TOTALING = "";
+    SECOND_NUM = "";
+    document.getElementById("last_operation").innerHTML = "";
+    document.getElementById("current_operation").innerHTML = "";
+}
+
+function delete_calc() {
+    SECOND_NUM = SECOND_NUM.slice(0, -1);
+    document.getElementById("current_operation").innerHTML = SECOND_NUM;
 }
